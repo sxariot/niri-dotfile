@@ -1,17 +1,18 @@
 #!/bin/bash
 
-# ==========================================================
-# 1. MENGHAPUS FOLDER KONFIGURASI YANG SUDAH TERPASANG
-# ==========================================================
-echo "Menghapus folder konfigurasi Niri Dotfiles dari sistem..."
+echo "Memulai penghapusan konfigurasi dari sistem..."
 
-# Perintah rm -rf digunakan untuk menghapus folder beserta seluruh isinya
+# 1. Menghapus folder konfigurasi desktop
 rm -rf ~/.config/niri
 rm -rf ~/.config/waybar
 rm -rf ~/.config/fuzzel
 rm -rf ~/.config/wlogout
 
-# Menghapus file skrip kustom wallpaper di folder bin lokal
+# 2. Menghapus eksekutor skrip wallpaper dari bin lokal
 rm -f ~/.local/bin/wallpaper-picker
 
-echo "Pembersihan selesai! Konfigurasi telah dihapus."
+# 3. Menghapus file contoh wallpaper bawaan agar bersih tanpa sisa
+# (Ini hanya menghapus file yang namanya ada di dalam folder sample-wallpapers bawaan)
+cd ~/niri-dotfile && rm -f ~/Pictures/wallpaper/contoh-retrowave.png 2>/dev/null
+
+echo "Pembersihan selesai! Semua file konfigurasi telah dihapus."
