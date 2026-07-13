@@ -1,0 +1,117 @@
+/* ==========================================================
+ *  ATURAN GLOBAL & UTAMA BAR
+ *  ========================================================== */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Ubuntu Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #c0caf5;
+}
+
+/* ==========================================================
+ *  BLOK KAPSUL KIRI (Workspace & Quick Links)
+ *  ========================================================== */
+#workspaces,
+#custom-browser,
+#custom-filemanager,
+#custom-calculator {
+background-color: #24283b;
+margin: 4px 0;
+padding: 0 8px;
+}
+
+#workspaces {
+border-radius: 6px 0 0 6px;
+margin-left: 8px;
+}
+#custom-calculator {
+border-radius: 0 6px 6px 0;
+margin-right: 8px;
+}
+
+#workspaces button {
+color: #a9b1d6;
+padding: 0 6px;
+border-radius: 4px;
+}
+
+#workspaces button.focused {
+color: #7fc8ff;
+background-color: #364a82;
+}
+
+#custom-browser:hover,
+#custom-filemanager:hover,
+#custom-calculator:hover {
+color: #7fc8ff;
+background-color: #364a82;
+}
+
+#window {
+color: #a9b1d6;
+padding: 0 10px;
+}
+
+/* ==========================================================
+ *  BLOK KAPSUL TENGAH (Jam)
+ *  ========================================================== */
+#clock {
+padding: 0 14px;
+margin: 4px 0;
+border-radius: 6px;
+color: #7aa2f7;
+background-color: #24283b;
+}
+
+/* ==========================================================
+ *  BLOK KAPSUL KANAN (Status Sistem Bersatu)
+ *  ========================================================== */
+#pulseaudio,
+#backlight,
+#network,
+#cpu,
+#memory,
+#disk,
+#battery,
+#tray,
+#custom-power {
+background-color: #24283b;
+margin: 4px 0; /* Dikembalikan menyatu rapat (margin 0 horizontal) */
+padding: 0 8px;
+}
+
+/* KASUS: Memberi ruang yang cukup untuk teks kecepatan internet tanpa merusak kerapatan */
+#network {
+padding: 0 10px;
+}
+
+/* Mengembalikan lengkungan ujung luar kapsul kanan */
+#pulseaudio {
+border-radius: 6px 0 0 6px;
+}
+#custom-power {
+border-radius: 0 6px 6px 0;
+margin-right: 8px;
+padding: 0 12px;
+}
+
+/* ==========================================================
+ *  PEWARNAAN IKON/TEKS SPESIFIK
+ *  ========================================================== */
+#pulseaudio   { color: #7aa2f7; }
+#backlight    { color: #e0af68; }
+#network      { color: #b4f9f8; }
+#cpu          { color: #9ece6a; }
+#memory       { color: #bb9af7; }
+#disk         { color: #f7768e; }
+#battery      { color: #73daca; }
+#custom-power { color: #f7768e; }
+
+#custom-power:hover {
+color: #ffffff;
+background-color: #f7768e;
+}

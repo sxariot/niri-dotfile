@@ -115,11 +115,12 @@
         "format-icons": ["", "", "", "", ""]
     },
 
-    // KASUS: Ingin ganti jaringan Wi-Fi secara cepat tanpa perlu membuka pengaturan sistem yang ribet.
-    // AKIBAT: Klik pada ikon Wi-Fi akan langsung memunculkan terminal Alacritty yang membuka aplikasi manager jaringan (nmtui).
+    // KASUS: Ingin memantau kecepatan unduh (download) dan kirim (upload) internet secara langsung di bar.
+    // AKIBAT: Menampilkan kecepatan internet real-time setiap 1 detik dengan ikon Nerd Font ramping & spasi lega.
     "network": {
-        "format-wifi": " {signalStrength}%",
-        "format-ethernet": "󰈀 Connected",
+        "interval": 1,
+        "format-wifi": " {signalStrength}%  󰇚 {bandwidthDownBytes}  󰇛 {bandwidthUpBytes}",
+        "format-ethernet": "󰈀 Connected  󰇚 {bandwidthDownBytes}  󰇛 {bandwidthUpBytes}",
         "format-disconnected": "󰤮 Disconnected",
         "tooltip-format": "{ifname} via {gwaddr}",
         "on-click": "alacritty -e nmtui"
