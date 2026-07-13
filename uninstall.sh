@@ -13,6 +13,7 @@ rm -f ~/.local/bin/wallpaper-picker
 
 # 3. Menghapus file contoh wallpaper bawaan agar bersih tanpa sisa
 # (Ini hanya menghapus file yang namanya ada di dalam folder sample-wallpapers bawaan)
-cd ~/niri-dotfile && rm -f ~/Pictures/wallpaper/contoh-retrowave.png 2>/dev/null
+# 3. Menghapus file contoh wallpaper bawaan agar bersih tanpa sisa
+cd ~/niri-dotfile && rm -f ~/Pictures/wallpaper/Anime-Girl4.jpeg ~/Pictures/wallpaper/Anime-Girl-Night-Sky.jpg ~/Pictures/wallpaper/Anime-Girl-Rain.png 2>/dev/null
 
 echo "Pembersihan selesai! Semua file konfigurasi telah dihapus."

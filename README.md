@@ -9,6 +9,8 @@ Halo! Repositori ini berisi kumpulan file pengaturan (*dotfiles*) untuk memperca
 > **PENTING UNTUK PENGGUNA BARU:**
 > Saat pertama kali kamu masuk ke sesi Niri, kamu mungkin akan melihat **jendela kotak hitam kosong besar yang mengganggu di tengah layar** bertuliskan *"Wayland to X Recording bridge — Xwayland Video Bridge"*.
 >
+> ![Masalah Jendela Kotak Hitam Xwayland Bridge](screenshots/Screenshot%20from%202026-07-13%2012-13-16.png)
+>
 > **Jangan panik! Ini bukan eror atau kerusakan desktop.** 
 > 
 > **Kenapa jendela hitam ini muncul?** Ini adalah aplikasi sistem bawaan KDE/Plasma (*Xwayland Video Bridge*) yang gunanya untuk membantu fitur rekam layar / *screen sharing* pada aplikasi lama (X11). Tapi karena Niri adalah Window Manager, aplikasi ini malah ikut terbuka sebagai jendela biasa yang kosong dan bikin risi pemandangan.
@@ -36,11 +38,9 @@ Halo! Repositori ini berisi kumpulan file pengaturan (*dotfiles*) untuk memperca
 
 ## 🖼️ Inspirasi Visual
 
-Untuk membantu kamu memulai, repositori ini sudah dilengkapi dengan beberapa **Sample Wallpaper** keren yang ada di folder `sample-wallpapers`. 
+Berikut adalah cuplikan tampilan lingkungan desktop yang bersih dan minimalis saat semua sistem dan wallpaper sudah berjalan dengan normal tanpa gangguan kotak hitam:
 
-Ini adalah contoh tampilan lingkungan desktop yang bersih jika jendela latar belakang dan aplikasi sudah berjalan dengan normal tanpa gangguan kotak hitam:
-
-![Contoh Tampilan Desktop dengan Wallpaper](sample-wallpapers/contoh-retrowave.png)
+![Pratinjau Tampilan Desktop Niri](screenshots/Screenshot%20from%202026-07-13%2022-51-33.png)
 
 ---
 
@@ -50,6 +50,7 @@ Berikut adalah isi dari folder `niri-dotfile` ini dan kegunaannya masing-masing:
 
 *   📁 **`.config/niri/config.kdl`** ➔ File setingan utama Niri. Isinya mengatur tombol shortcut keyboard dan aplikasi apa saja yang otomatis menyala pas kamu baru login.
 *   📁 **`sample-wallpapers/`** ➔ Folder bonus berisi koleksi gambar wallpaper keren bawaan repositori untuk inspirasimu.
+*   📁 **`screenshots/`** ➔ Menyimpan gambar dokumentasi untuk halaman utama README ini.
 *   📁 **`wlogout/layout`** ➔ Mengatur tampilan menu tombol power (tombol Turn Off, Restart, dll).
 *   📄 **`install.sh`** ➔ Skrip otomatis untuk memasang semua aplikasi, menyalin setingan, dan menyiapkan folder wallpaper secara instan.
 *   📄 **`uninstall.sh`** ➔ Skrip otomatis untuk menghapus semua setingan ini secara bersih tanpa sisa.
