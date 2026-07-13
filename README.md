@@ -2,7 +2,7 @@
 
 Halo! Repositori ini berisi kumpulan file pengaturan (*dotfiles*) untuk mempercantik dan mengatur desktop **Niri Window Manager** di Linux openSUSE Tumbleweed atau Leap. Di dalamnya sudah lengkap dengan panel atas (Waybar), menu aplikasi (Fuzzel), dan menu tombol power (wlogout).
 
----
+--- 
 
 ## ⚠️ DISCLAIMER PENTING (BACA INI DULU!)
 
@@ -15,7 +15,7 @@ Halo! Repositori ini berisi kumpulan file pengaturan (*dotfiles*) untuk memperca
 > 
 > **Kenapa jendela hitam ini muncul?** Ini adalah aplikasi sistem bawaan KDE/Plasma (*Xwayland Video Bridge*) yang gunanya untuk membantu fitur rekam layar / *screen sharing* pada aplikasi lama (X11). Tapi karena Niri adalah Window Manager, aplikasi ini malah ikut terbuka sebagai jendela biasa yang kosong dan bikin risi pemandangan.
 >
-> *   **Jika kamu TIDAK merasa terganggu:** Kamu bisa membiarkannya saja atau cukup menutup jendela tersebut secara manual menggunakan tombol pintas penutup jendela di Niri kamu.
+> *   **Jika kamu TIDAK merasa terganggu:** Kamu bisa membiarkannya saja.
 > *   **Jika kamu MERASA RISI/TERGANGGU dan ingin mematikannya:**
 >     Kamu bisa mematikan layanan ini sepenuhnya agar tidak pernah muncul lagi dengan mengetik perintah ini di terminal:
 >     ```bash
