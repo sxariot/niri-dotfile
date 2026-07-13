@@ -1,0 +1,140 @@
+{
+    // KASUS: Jendela aplikasi yang dibuka menutupi bilah menu Waybar.
+    // JIKA diatur "top": Waybar dipaksa selalu berada di lapisan paling atas layar komputer.
+    "layer": "top",
+
+    // KASUS: Ingin memindahkan bilah menu ke bagian bawah layar (seperti taskbar Windows).
+    // JIKA diubah ke "bottom": Waybar otomatis berpindah ke ujung bawah layar monitor.
+    "position": "top",
+
+    // KASUS: Ukuran teks di bilah menu terasa terlalu padat atau bar-nya terlalu kurus.
+    // JIKA diubah (misal 40): Mengatur ketebalan/tinggi bar secara vertikal dalam satuan piksel.
+    "height": 34,
+
+    // KASUS: Jarak renggang antar kelompok modul terasa terlalu renggang atau terlalu mepet.
+    // JIKA diubah: Memberikan jarak batas kosong antar blok modul sebesar piksel yang ditentukan.
+    "spacing": 4,
+
+    // =============================================================================
+    // PETA TATA LETAK UTAMA (Mengatur urutan kemunculan menu di layar)
+    // =============================================================================
+    // KASUS: Ingin memindahkan tombol aplikasi ke tengah atau memindahkan jam ke kanan.
+    // JIKA urutan di dalam kurung siku diubah: Posisi horizontal modul di layar ikut bertukar.
+    "modules-left": ["niri/workspaces", "group/quicklinks", "niri/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "backlight", "network", "cpu", "memory", "disk", "battery", "tray", "custom/power"],
+
+    // =============================================================================
+    // KATEGORI: DEFINISI QUICK LINKS (Tombol Pintasan Aplikasi Kiri)
+    // =============================================================================
+    // KASUS: Malas membuka menu pencarian hanya untuk membuka aplikasi yang sering dipakai.
+    // AKIBAT: Klik pada ikon akan langsung memicu perintah "on-click" untuk membuka program tersebut.
+    "custom/browser": {
+        "format": "", // Ikon yang ditampilkan di bar (FontAwesome)
+        "on-click": "firefox", // JIKA diganti "chromium": Klik ikon akan membuka Chromium, bukan Firefox.
+        "tooltip-format": "Buka Firefox" // Teks panduan saat kursor mouse menempel
+    },
+    "custom/filemanager": {
+        "format": "",
+        "on-click": "thunar", // JIKA Anda memakai nautilus: Ganti kata "thunar" menjadi "nautilus".
+        "tooltip-format": "Buka File Manager"
+    },
+    "custom/calculator": {
+        "format": "",
+        "on-click": "galculator",
+        "tooltip-format": "Buka Kalkulator"
+    },
+
+    // KASUS: Tombol-tombol aplikasi di atas berantakan dan posisinya menyebar tidak beraturan.
+    // JIKA blok ini aktif: Mengunci ketiga tombol kustom tadi agar berbaris rapi secara horizontal.
+    "group/quicklinks": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/browser",
+            "custom/filemanager",
+            "custom/calculator"
+        ]
+    },
+
+    // KASUS: Ingin mematikan laptop tanpa harus mengetik perintah "shutdown" di dalam terminal.
+    // AKIBAT: Klik pada ikon ⏻ akan memunculkan menu layar penuh berisi pilihan Shutdown, Restart, atau Lock.
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout",
+        "tooltip-format": "Menu Daya"
+    },
+
+    // =============================================================================
+    // KATEGORI: MODUL STATUS SISTEM (Sisi Tengah & Kanan)
+    // =============================================================================
+    // KASUS: Lupa tanggal hari ini atau ingin melihat kalender bulanan secara instan.
+    // AKIBAT: Klik pada jam akan memunculkan jendela pop-up kalender satu bulan penuh di bawah bar.
+    "clock": {
+        "format": " {:%H:%M   %d/%m/%y}", // Mengatur tampilan format Jam:Menit dan Tanggal/Bulan/Tahun.
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    // KASUS: Laptop terasa lemot dan ingin tahu apakah prosesor sedang bekerja terlalu keras.
+    // JIKA diaktifkan: Menampilkan angka persentase beban kerja CPU Anda secara real-time.
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": true
+    },
+
+    // KASUS: Ingin memantau kapasitas RAM saat membuka banyak tab browser agar tidak hang.
+    // AKIBAT: Menampilkan status RAM yang sedang terpakai dibanding total kapasitas RAM fisik laptop.
+    "memory": {
+        "format": " {used:0.1f}G/{total:0.1f}G"
+    },
+
+    // KASUS: Khawatir penyimpanan SSD/HDD tiba-tiba penuh tanpa disadari.
+    // JIKA interval 30: Setiap 30 detik sekali, Waybar mengecek sisa kapasitas ruang penyimpanan sistem utama (/).
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "tooltip-format": "Penyimpanan: {used} terpakai dari {total}"
+    },
+
+    // KASUS: Layar laptop terlalu silau saat malam hari dan ingin meredupkannya lewat bar.
+    // AKIBAT: Mengarahkan kursor mouse ke ikon lalu melakukan scroll up/down akan menaik-turunkan lampu layar per 5%.
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"], // Ikon otomatis berubah dari redup ke terang mengikuti persentase.
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    // KASUS: Laptop tiba-tiba mati karena kehabisan baterai tanpa ada peringatan awal.
+    // JIKA kapasitas di bawah 30% atau 15%: Kotak baterai otomatis berubah status menjadi peringatan kritis (critical).
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󱐋 {capacity}%", // Tampilan ikon saat kabel charger dicolok.
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    // KASUS: Ingin ganti jaringan Wi-Fi secara cepat tanpa perlu membuka pengaturan sistem yang ribet.
+    // AKIBAT: Klik pada ikon Wi-Fi akan langsung memunculkan terminal Alacritty yang membuka aplikasi manager jaringan (nmtui).
+    "network": {
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": "󰈀 Connected",
+        "format-disconnected": "󰤮 Disconnected",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click": "alacritty -e nmtui"
+    },
+
+    // KASUS: Suara musik terlalu keras atau ingin mematikan suara dengan cepat saat ada panggilan.
+    // AKIBAT:
+    // 1. Scroll mouse di atas ikon akan menaik-turunkan volume suara per 5% (dikunci maksimal 100% agar speaker tidak rusak).
+    // 2. Klik kiri pada ikon akan otomatis membuka jendela kontrol panel audio grafis (Pavucontrol).
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": { "default": ["", "", ""] },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    }
+}
