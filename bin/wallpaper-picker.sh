@@ -3,7 +3,7 @@
 # SKRIP PEMILIH WALLPAPER: FIX RANDOM GLOBAL (MEMBUKA BLOKIR 200+ GAMBAR)
 # =============================================================================
 
-DIR="/home/suselinux/Pictures/wallpaper"
+DIR="$HOME/Pictures/wallpaper"
 
 # JIKA skrip dipanggil saat startup (otomatis mengacak total saat baru login)
 if [ "$1" = "--startup" ]; then

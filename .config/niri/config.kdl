@@ -99,7 +99,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "nm-applet" "--indicator"
 
 // Mencoba kembali mengacak wallpaper secara otomatis saat baru login
-spawn-sh-at-startup "sleep 1 && sh ~/.config/niri/select-wallpaper.sh --startup"
+spawn-sh-at-startup "sleep 1 && wallpaper-picker --startup"
 
 // --- ATURAN KHUSUS LAYER BACKDROP WALLPAPER ---
 layer-rule {
@@ -145,7 +145,9 @@ window-rule {
 // =============================================================================
 binds {
     // Windows + W: Menjalankan skrip pemilih wallpaper menggunakan menu teks Fuzzel
-    Mod+W { spawn "sh" "-c" "~/.config/niri/select-wallpaper.sh"; }
+
+    // Untuk memilih wallpaper
+    Mod+W { spawn "wallpaper-picker"; }
 
     Mod+Shift+Slash { show-hotkey-overlay; }
 
